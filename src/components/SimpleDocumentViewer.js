@@ -45,7 +45,7 @@ const SimpleDocumentViewer = ({ document, onClose }) => {
 
     if (isPdf) {
       const token = localStorage.getItem('access_token');
-      const previewUrl = `http://localhost:8000/documents/${document.id}/preview/?token=${token}`;
+      const previewUrl = `${process.env.REACT_APP_API_URL}/documents/${document.id}/preview/?token=${token}`;
 
       console.log('📄 Chargement PDF:', { fileName: document.file_name, url: previewUrl });
 
@@ -76,7 +76,7 @@ const SimpleDocumentViewer = ({ document, onClose }) => {
 
     if (isImage) {
       const token = localStorage.getItem('access_token');
-      const imageUrl = `http://localhost:8000/documents/${document.id}/preview/?token=${token}`;
+      const imageUrl = `${process.env.REACT_APP_API_URL}/documents/${document.id}/preview/?token=${token}`;
 
       // Déterminer la méthode de détection utilisée
       let detectionMethod = 'inconnue';
@@ -117,7 +117,7 @@ const SimpleDocumentViewer = ({ document, onClose }) => {
     // Fallback : essayer d'afficher comme image si pas d'extension claire
     if (!extension || extension === '') {
       const token = localStorage.getItem('access_token');
-      const fallbackUrl = `http://localhost:8000/documents/${document.id}/preview/?token=${token}`;
+      const fallbackUrl = `${process.env.REACT_APP_API_URL}/documents/${document.id}/preview/?token=${token}`;
 
       console.log('🔄 Tentative fallback image pour:', {
         fileName: document.file_name,

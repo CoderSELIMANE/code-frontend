@@ -11,8 +11,8 @@ const TestDocumentViewer = ({ document, onClose }) => {
 
   // URLs de test - CORRECTION: ajouter le token pour l'authentification
   const token = localStorage.getItem('access_token');
-  const previewUrl = `http://127.0.0.1:8000/documents/${document.id}/preview/?token=${token}`;
-  const downloadUrl = `http://127.0.0.1:8000/api/documents/${document.id}/download/`;
+  const previewUrl = `${process.env.REACT_APP_API_URL}/documents/${document.id}/preview/?token=${token}`;
+  const downloadUrl = `${process.env.REACT_APP_API_URL}/api/documents/${document.id}/download/`;
   
   console.log('=== DEBUG DOCUMENT VIEWER ===');
   console.log('Document complet:', document);
